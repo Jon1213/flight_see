@@ -10,7 +10,8 @@ var express = require("express"),
   var morgan = require('morgan');
   var routeMiddleware = require("./config/routes");
   var https = require('https');
-  var google_api_key = "AIzaSyCrDCgH3B-u6QkJeLAp54PqruYDNWFAQOs";
+  var google_api_key = process.env.GOOGLE_API_KEY;
+
 
 // Gotta use Google maps now. Either that, or it won't work at all  
 // Middleware for ejs, grabbing HTML and including static files
@@ -71,7 +72,7 @@ app.get('/', routeMiddleware.preventLoginSignup, function(req,res){
   var coordinates;
   var locale_data;
 
-  buzzer();
+
 /*  var optionsget = {
     host : '', // here only the domain name
     // (no http/https !)
@@ -107,9 +108,8 @@ app.get('/', routeMiddleware.preventLoginSignup, function(req,res){
   });
 
 */
-var buzzer = function(){
+
   res.render('index');  
-};
 
   
 });
