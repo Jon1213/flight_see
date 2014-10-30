@@ -4,24 +4,26 @@ var express = require("express"),
   passportLocal = require("passport-local"),
   cookieParser = require("cookie-parser"),
   session = require("cookie-session"),
-//  db = require("./models/index"),
+  db = require("./models/index"),
   flash = require('connect-flash'),
   app = express();
   var morgan = require('morgan');
   var routeMiddleware = require("./config/routes");
   var https = require('https');
-  var google_api_key = "AIzaSyCrDCgH3B-u6QkJeLAp54PqruYDNWFAQOs";
+
+  //this shows up in my script call, so not going to process.env this
+  var google_api_key = "AIzaSyCrDCgH3B-u6QkJeLAp54PqruYDNWFAQOs"; 
 
 
 // Gotta use Google maps now. Either that, or it won't work at all  
 // Middleware for ejs, grabbing HTML and including static files
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}) );
 
 app.use(session( {
-  secret: 'thisismysecretkeyFORNOW',
+  secret: process.env.SECRET_SALT,
   name: 'flightsee',
   // this is in milliseconds
   maxage: 1000*60*60 //1000 milliseconds = 1 sec; 60 sec = 1 minute, times 60 means one hour
