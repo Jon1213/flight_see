@@ -10,13 +10,14 @@ var express = require("express"),
   var morgan = require('morgan');
   var routeMiddleware = require("./config/routes");
   var https = require('https');
-  var google_api_key = process.env.GOOGLE_API_KEY;
+  var google_api_key = "AIzaSyCrDCgH3B-u6QkJeLAp54PqruYDNWFAQOs";
 
 
 // Gotta use Google maps now. Either that, or it won't work at all  
 // Middleware for ejs, grabbing HTML and including static files
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
+app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({extended: false}) );
 
 app.use(session( {

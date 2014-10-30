@@ -1,0 +1,84 @@
+html, body { height: 100%; margin: 0; padding: 0;}
+
+header {
+	width: 100%;
+	height:135px;
+	background-color: #000033;
+	color: white;
+	font-size: 48px;
+	line-height: 120%;
+	text-align: center;
+}
+
+header a {
+	color: white;
+	text-decoration: none;
+}
+
+header div {
+	float:right;
+	padding-right: 30px;
+	font-size: 18px;
+}
+
+header div ul {
+	float:left;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+header div li {
+	margin: 10px;
+	float:left;
+}
+
+h3.title {
+	margin:0px;
+	padding-top: 15px;
+}
+
+#panel {
+	display:inline;
+	margin: 0 auto;
+	position:absolute;
+	top:200px;
+	height: 0px;
+	z-index:500;
+	width: 100%;
+	text-align: center;
+}
+
+#panel input {
+	height: 30px;
+	width: 175px;
+	padding: 5px;
+	text-align: center;
+	font-size: 18px;
+}
+
+#panel input[type=button] {
+	width: 130px;
+	padding: 2px;
+	background-color: #000033;
+	color:white;
+	font-size:14px;
+}
+
+#map-canvas {
+	width: 100%;
+	height:100%;
+	padding: 0px;
+	margin: 0px;
+	position:relative;
+	overflow: inherit !important;
+}
+
+footer {
+	text-align:center;
+	background-color: #000033;
+	height:40px;
+	color:white;
+	font-size: 16px;
+	padding: 20px;
+}
