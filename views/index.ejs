@@ -1,22 +1,8 @@
 <% include partials/header %>
 
-<!--<script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          zoom: 5,
-          center: new google.maps.LatLng(38.921313,-100.378955),
-          mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
-        var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-
-        
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 -->
 <script>
-  //google maps initialize
+  //google maps initialize on Grinnell, IA; home of the Puppet Masters
   function initialize() {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(41.7294836, -92.7255108);
@@ -30,6 +16,7 @@
 </script>
 <script src="/scripts/maps.js"></script>
 
+<!-- Give me your starting point and end points, and I will show you your flight and various wonders -->
 <div id="panel">
   <div class="inner_panel">
     <input id="address1" type="textbox" value="" placeholder="Starting Airport">
