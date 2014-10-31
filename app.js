@@ -16,7 +16,7 @@ var express = require("express"),
 
 
 // Gotta use Google maps now. Either that, or it won't work at all  
-// Middleware for ejs, grabbing HTML and including static files
+// Middleware for ejs, rgabbing HTML and including static files
 app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
@@ -71,50 +71,12 @@ passport.deserializeUser(function(id, done){
     });
 });
 
-app.get('/', routeMiddleware.preventLoginSignup, function(req,res){
-  var coordinates;
-  var locale_data;
+app.get('/', function(req,res){
+  res.render('index', {user: req.user});  
+});
 
-
-/*  var optionsget = {
-    host : '', // here only the domain name
-    // (no http/https !)
-    port : 443,
-    path : '', // the rest of the url with parameters if needed
-    method : 'GET' // do GET
-  };
-
-  console.log('Options prepared:');
-  console.log(optionsget);
-  console.log('Do the GET call');
-
-  // do the GET request
-  var reqGet = https.request(optionsget, function(res) {
-    console.log("statusCode: ", res.statusCode);
-    // uncomment it for header details
-  //  console.log("headers: ", res.headers);
-
-
-    res.on('data', function(d) {
-      console.log('GET result:\n');
-      process.stdout.write(d);
-    
-      console.log('\n\nCall completed');
-      
-    });
-
-  });
-
-  reqGet.end();
-  reqGet.on('error', function(e) {
-    console.log(e);
-  });
-
-*/
-
-  res.render('index');  
-
-  
+app.get('/index', function(req,res){
+  res.render('index', {user: req.user});  
 });
 
 app.get('/signup', routeMiddleware.preventLoginSignup, function(req,res){
@@ -125,16 +87,16 @@ app.get('/login', routeMiddleware.preventLoginSignup, function(req,res){
     res.render('login', {message: req.flash('loginMessage'), username: ""});
 });
 
-app.get('/home', routeMiddleware.checkAuthentication, function(req,res){
-  res.render("home", {user: req.user});
-});
+// app.get('/home', routeMiddleware.checkAuthentication, function(req,res){
+//   res.render("home", {user: req.user});
+// });
 
 // on submit, create a new users using form values
-app.post('/submit', function(req,res){
+app.post('/signup', function(req,res){
 
-  db.User.createNewUser(req.body.username, req.body.password,
+  db.User.createNewUser(req.body.email, req.body.password,
   function(err){
-    res.render("signup", {message: err.message, username: req.body.username});
+    res.render("signup", {message: err.message, username: req.body.email});
   },
   function(success){
     res.render("index", {message: success.message});
@@ -143,7 +105,7 @@ app.post('/submit', function(req,res){
 
 // authenticate users when logging in - no need for req,res passport does this for us
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/home',
+  successRedirect: '/index',
   failureRedirect: '/login',
   failureFlash: true
 }));

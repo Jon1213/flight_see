@@ -10,7 +10,7 @@ var routeMiddleware = {
 
   preventLoginSignup: function(req, res, next) {
     if (req.user) {
-      res.redirect('/home');
+      res.redirect('/');
     }
     else {
      return next();

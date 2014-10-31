@@ -5,25 +5,45 @@
 	<title>Flightsee</title>
 
 	<!-- Google Maps API -->
+	<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDCgH3B-u6QkJeLAp54PqruYDNWFAQOs">
+  </script>
+
+  <!-- jQuery and Bootstrap -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="/stylesheets/normalize.css">
 	<link rel="stylesheet" href="/stylesheets/main.css">
 	
 	<!-- Scripts -->
-	<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDCgH3B-u6QkJeLAp54PqruYDNWFAQOs">
-    </script>
+	
 
 </head>
 <body>
+<% if(typeof message !== 'undefined'){%>
+	<%= message %>
+	<% } %>
 
 <header>
 	<h3 class="title">Welcome to Flight-See</h3>
+	
 	<div class="userpanel">
+		<% if(typeof user == "undefined"){ %>
 		<ul class="useractions">
-			<li class="signup"><a href="./signup">Sign Up</a></li>
-			<li class="login"><a href="./login">Log In</a></li>
+			<li class="signup"><a href="/signup">Sign Up</a></li>
+			<li class="login"><a href="/login">Log In</a></li>
 		</ul>
+		<% } else { %>
+		<a href="/logout">Log Out</a>
+		<% } %>
 	</div>
 </header>

@@ -1,0 +1,12 @@
+<% include partials/header %>
+
+<h1>Login</h1>
+<form action="/login" method="post">
+	<p><label for="email">Email</label><input type="text" name="email" id="email"></p>
+	<p><label for="password">Password</label><input type="password" name="password" id="password"></p>
+	<p><input type="submit" value="Log In" class="but btn-primary"></p>
+</form>
+<a href="/signup">Don't have an account? Create one here</a>
+
+
+<% include partials/footer %>
