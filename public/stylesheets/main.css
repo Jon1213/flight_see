@@ -33,7 +33,7 @@ header div li {
 	float:left;
 }
 
-h3.title {
+header .title {
 	margin:0px;
 	padding-top: 15px;
 	font-size: 48px;
@@ -75,15 +75,29 @@ h3.title {
 	overflow: inherit !important;
 }
 
-div.signup {
+div.signup, div.login {
+	display: table;
 	width: 100%;
 	height: 600px;
 	padding-left:100px;
 }
 
-form.signup {
+h3 {
+	margin: 20px 0 0 0;
+	padding: 0;
+}
+
+form.userInfo {
 	height: 200px;
 	width: 300px;
+	padding-top:0;
+	margin-top:0;
+}
+
+form.signup .btn {
+	margin-left: 0;
+	position: relative;
+	right: 30px;
 }
 
 footer {

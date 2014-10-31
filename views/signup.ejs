@@ -1,20 +1,23 @@
 <% include partials/header %>
 
 <div class="signup">
-	<h1>Sign up form</h1>
-  <form class="signup" action="/signup" method ="POST">
-    <p>
-      <label for="email">Email:</label>
-			<input type="text" name="email" id="user" autofocus>
-    </p>
-    <p>
-      <label for="pass">Password:</label>
-			<input type="password" name="password" id="pass">
-    </p>
-    <p>
-      <input type="submit" value="Sign up!" class = "btn btn-primary">
-    </p>
+	<h3>Sign up form</h3>
+  <form class="userInfo" action="/signup" method ="POST">
+    <table class="table table-responsive">
+			<tr>
+				<td><label for="email">Email:</label></td>
+				<td><input type="text" name="email" id="user" autofocus></td>
+			</tr>
+			<tr>
+				<td><label for="pass">Password:</label></td>
+				<td><input type="password" name="password" id="pass"></td>
+			</tr>
+		</table>
+		
+    <input type="submit" value="Sign up!" class = "btn btn-primary">
+    
   </form>
+
   <a href="/login">Already have an account? Log in here</a>
 </div>
 
